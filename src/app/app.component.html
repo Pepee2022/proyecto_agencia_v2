@@ -1,16 +1,74 @@
-<style>
-  
-</style>
-
-<!-- Header -->
-<div class="toolbar" role="banner">
-
+<!-- NavBar -->
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="/src/img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Cusco City Tours - Administrador
+      </a>
+      <span class="navbar">
+        <div class="btn-group" dropdown>
+        <button id="button-animated" dropdownToggle type="button" class="btn btn-warning dropdown-toggle"
+                aria-controls="dropdown-animated" *ngFor="let user of user">
+          Bienvenido {{ user.nombreUsuario }} <span class="caret"></span>
+        </button>
+        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-animated">
+          <li role="menuitem"><a class="dropdown-item" href="#">Datos de Usuario</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Administrar Productos</a>
+          </li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+        </ul>
+      </div>
+      </span>
+    </div>
+  </nav>
 </div>
 
 <!-- Main -->
 <div class="content" role="main">
-  <div>
-    
+  <div class="container pt-4">
+    <h1>Paquetes completos</h1>
+    <div>
+      <div class="container">
+        <table class="table container mt-4">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Destino</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Duración</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let packet1 of packet1">
+              <th scope="row">1</th>
+              <td>{{ packet1.nombreDestino }}</td>
+              <td>S/{{ packet1.precioDestino }}.00</td>
+              <td>{{ packet1.duracionDias }} días - {{ packet1.duracionNoches }} noches</td>
+              <td><button class="btn btn-dark">Editar</button></td>
+            </tr>
+            <tr *ngFor="let packet2 of packet2">
+              <th scope="row">2</th>
+              <td>{{ packet2.nombreDestino }}</td>
+              <td>S/{{ packet2.precioDestino }}.00</td>
+              <td>{{ packet2.duracionDias }} días - {{ packet2.duracionNoches }} noches</td>
+              <td><button class="btn btn-dark">Editar</button></td>
+            </tr>
+            <tr *ngFor="let packet3 of packet3">
+              <th scope="row">3</th>
+              <td>{{ packet3.nombreDestino }}</td>
+              <td>S/{{ packet3.precioDestino }}.00</td>
+              <td>{{ packet3.duracionDias }} días - {{ packet3.duracionNoches }} noches</td>
+              <td><button class="btn btn-dark">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2></h2>
+    </div>
   </div>
 
   <!-- Footer -->
