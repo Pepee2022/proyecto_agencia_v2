@@ -25,7 +25,7 @@ export class AppComponent {
     {
       nombreDestino: "Machupicchu",
       precioDestino: 550,
-      hora: 9,
+      hora: 2,
       min: 0,
     }
   ];
@@ -34,7 +34,7 @@ export class AppComponent {
     {
       nombreDestino: "Valle Sagrado",
       precioDestino: 450,
-      hora: 9,
+      hora: 5,
       min: 0,
     }
   ];
@@ -43,7 +43,7 @@ export class AppComponent {
     {
       nombreDestino: "Monataña de 7 colores",
       precioDestino: 330,
-      hora: 9,
+      hora: 4,
       min: 0,
     }
   ];
