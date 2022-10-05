@@ -14,7 +14,8 @@
         </button>
         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
             role="menu" aria-labelledby="button-animated">
-          <li role="menuitem"><a class="dropdown-item" href="#">Datos de Usuario</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Usuario</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Ventas</a></li>
           <li role="menuitem"><a class="dropdown-item" href="#">Administrar Productos</a>
           </li>
           <li class="divider dropdown-divider"></li>
@@ -33,11 +34,12 @@
     <div>
       <div class="container">
         <!-- Tabla Info Paquetes -->
-        <table class="table container mt-4">
+        <table class="table container mt-4 text-center">
           <thead>
             <tr>
               <th scope="col"></th>
               <th scope="col">Destino</th>
+              <th scope="col">Tiempo</th>
               <th scope="col">Precio</th>
               <th scope="col">Hora de Recojo</th>
               <th scope="col"> Edición de información</th>
@@ -47,8 +49,9 @@
             <tr *ngFor="let packet1 of packet1">
               <th scope="row">1</th>
               <td>{{ packet1.nombreDestino }}</td>
+              <td>{{ packet1.tiempo }}</td>
               <td>S/{{ packet1.precioDestino }}.00</td>
-              <td>{{ packet1.hora }}:{{ packet1.min }}</td>
+              <td>{{ packet1.hora }}:{{ packet1.min }} a.m</td>
               <!-- Botón editar Paquete -->
               <td><button type="button" class="btn btn-dark" (click)="openModal(template)">Editar</button>
                 <!-- Modal Formulario -->
@@ -69,6 +72,10 @@
                       <div class="mb-3">
                         <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios (Opcional)</label>
                         <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="Pisac, Calca, Chinchero, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Tiempo</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="6 horas, 12 horas, Full Day, etc." aria-describedby="textHelp">
                       </div>
                       <div class="row g-3">
                         <div class="col-md-6">
@@ -96,8 +103,9 @@
             <tr *ngFor="let packet2 of packet2">
               <th scope="row">2</th>
               <td>{{ packet2.nombreDestino }}</td>
+              <td>{{ packet2.tiempo }}</td>
               <td>S/{{ packet2.precioDestino }}.00</td>
-              <td>{{ packet2.hora }}:{{ packet2.min }}</td>
+              <td>{{ packet2.hora }}:{{ packet2.min }} a.m</td>
               <!-- Botón editar Paquete -->
               <td><button type="button" class="btn btn-dark" (click)="openModal(template)">Editar</button>
                 <!-- Modal Formulario -->
@@ -116,8 +124,12 @@
                         <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
                       </div>
                       <div class="mb-3">
-                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios</label>
+                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios (Opcional)</label>
                         <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="Pisac, Calca, Chinchero, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Tiempo</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="6 horas, 12 horas, Full Day, etc." aria-describedby="textHelp">
                       </div>
                       <div class="row g-3">
                         <div class="col-md-6">
@@ -146,8 +158,9 @@
             <tr *ngFor="let packet3 of packet3">
               <th scope="row">3</th>
               <td>{{ packet3.nombreDestino }}</td>
+              <td>{{ packet3.tiempo }}</td>
               <td>S/{{ packet3.precioDestino }}.00</td>
-              <td>{{ packet3.hora }}:{{ packet3.min }}</td>
+              <td>{{ packet3.hora }}:{{ packet3.min }} a.m</td>
               <!-- Botón editar Paquete -->
               <td><button type="button" class="btn btn-dark" (click)="openModal(template)">Editar</button>
                 <!-- Modal Formulario -->
@@ -166,8 +179,12 @@
                         <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
                       </div>
                       <div class="mb-3">
-                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios</label>
+                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios (Opcional)</label>
                         <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="Pisac, Calca, Chinchero, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Tiempo</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="6 horas, 12 horas, Full Day, etc." aria-describedby="textHelp">
                       </div>
                       <div class="row g-3">
                         <div class="col-md-6">
@@ -193,16 +210,183 @@
               </td>
               <!-- Fin Botón editar Paquete -->
             </tr>
+            <tr *ngFor="let packet4 of packet4">
+              <th scope="row">1</th>
+              <td>{{ packet4.nombreDestino }}</td>
+              <td>{{ packet4.tiempo }}</td>
+              <td>S/{{ packet4.precioDestino }}.00</td>
+              <td>{{ packet4.hora }}:{{ packet4.min }} a.m</td>
+              <!-- Botón editar Paquete -->
+              <td><button type="button" class="btn btn-dark" (click)="openModal(template)">Editar</button>
+                <!-- Modal Formulario -->
+                <ng-template #template>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Paquete 4</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                      <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                  </div>
+                  <!-- Formulario Paquete 1 -->
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="InputPacketName" class="form-label">Nombre Destino</label>
+                        <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios (Opcional)</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="Pisac, Calca, Chinchero, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Tiempo</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="6 horas, 12 horas, Full Day, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="InputPacketPrice" class="form-label">Precio</label>
+                          <div class="input-group">
+                            <span class="input-group-text">S/</span>
+                            <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="InputPacketPrice" class="form-label">Hora de Recojo</label>
+                          <div class="mb-3">
+                            <timepicker [(ngModel)]="mytime"></timepicker>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-dark">Aceptar</button>
+                    </form>
+                  </div>
+                  <!-- Fin Formulario Paquete 1 -->
+                </ng-template>
+                <!-- Fin Modal Formulario -->
+              </td>
+            </tr>
+            <tr *ngFor="let packet5 of packet5">
+              <th scope="row">1</th>
+              <td>{{ packet5.nombreDestino }}</td>
+              <td>{{ packet5.tiempo }}</td>
+              <td>S/{{ packet5.precioDestino }}.00</td>
+              <td>{{ packet5.hora }}:{{ packet5.min }} a.m</td>
+              <!-- Botón editar Paquete -->
+              <td><button type="button" class="btn btn-dark" (click)="openModal(template)">Editar</button>
+                <!-- Modal Formulario -->
+                <ng-template #template>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Paquete 5</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                      <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                  </div>
+                  <!-- Formulario Paquete 1 -->
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="InputPacketName" class="form-label">Nombre Destino</label>
+                        <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios (Opcional)</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="Pisac, Calca, Chinchero, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Tiempo</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="6 horas, 12 horas, Full Day, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="InputPacketPrice" class="form-label">Precio</label>
+                          <div class="input-group">
+                            <span class="input-group-text">S/</span>
+                            <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="InputPacketPrice" class="form-label">Hora de Recojo</label>
+                          <div class="mb-3">
+                            <timepicker [(ngModel)]="mytime"></timepicker>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-dark">Aceptar</button>
+                    </form>
+                  </div>
+                  <!-- Fin Formulario Paquete 1 -->
+                </ng-template>
+                <!-- Fin Modal Formulario -->
+              </td>
+            </tr>
+            <tr *ngFor="let packet6 of packet6">
+              <th scope="row">1</th>
+              <td>{{ packet6.nombreDestino }}</td>
+              <td>{{ packet6.tiempo }}</td>
+              <td>S/{{ packet6.precioDestino }}.00</td>
+              <td>{{ packet6.hora }}:{{ packet6.min }} a.m</td>
+              <!-- Botón editar Paquete -->
+              <td><button type="button" class="btn btn-dark" (click)="openModal(template)">Editar</button>
+                <!-- Modal Formulario -->
+                <ng-template #template>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Paquete 6</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                      <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                  </div>
+                  <!-- Formulario Paquete 1 -->
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="InputPacketName" class="form-label">Nombre Destino</label>
+                        <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Destinos Secundarios (Opcional)</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="Pisac, Calca, Chinchero, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="InputSecundaryDestiny" class="form-label">Tiempo</label>
+                        <input type="text" class="form-control" id="InputSecundaryDestiny" placeholder="6 horas, 12 horas, Full Day, etc." aria-describedby="textHelp">
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label for="InputPacketPrice" class="form-label">Precio</label>
+                          <div class="input-group">
+                            <span class="input-group-text">S/</span>
+                            <input type="text" class="form-control" id="InputPacketName" aria-describedby="textHelp">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="InputPacketPrice" class="form-label">Hora de Recojo</label>
+                          <div class="mb-3">
+                            <timepicker [(ngModel)]="mytime"></timepicker>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-dark">Aceptar</button>
+                    </form>
+                  </div>
+                  <!-- Fin Formulario Paquete 1 -->
+                </ng-template>
+                <!-- Fin Modal Formulario -->
+              </td>
+            </tr>
           </tbody>
         </table>
         <!-- Fin Tabla Info Paquetes -->
       </div>
-      <h2></h2>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer>
-      
-  </footer>
+<footer class="text-center text-muted pt-5 mt-5">
+  <!-- Copyright -->
+  <div class="text-center p-4 bg-light">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="#">CuscoCityTours.com</a>
+  </div>
+  <!-- Fin Copyright -->
+</footer>
+<!-- Fin Footer -->
 </div>

@@ -2,6 +2,7 @@ import { Time } from "@angular/common";
 
 export interface Packet {
     nombreDestino: string;
+    tiempo: string;
     precioDestino: number;
     hora: number;
     min: number;
