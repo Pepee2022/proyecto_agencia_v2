@@ -1,8 +1,10 @@
+import { Time } from "@angular/common";
+
 export interface Packet {
     nombreDestino: string;
     precioDestino: number;
-    duracionDias: number;
-    duracionNoches: number;
+    hora: number;
+    min: number;
 }
 
 export interface User {

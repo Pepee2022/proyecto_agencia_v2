@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import {Packet as Packet1} from './model/packet.model';
 import {Packet as Packet2} from './model/packet.model';
 import {Packet as Packet3} from './model/packet.model';
 import {User as user} from './model/packet.model';
-import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root, demo-timepicker-basic',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [{ provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }]
@@ -15,28 +17,34 @@ import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 //Componentes generales
 export class AppComponent {
   title = 'proyecto_agencia_v2';
+  //Constructor Modal
+  modalRef?: BsModalRef;
+  constructor(private modalService: BsModalService) {}
+
   packet1: Packet1[] = [
     {
       nombreDestino: "Machupicchu",
       precioDestino: 550,
-      duracionDias: 4,
-      duracionNoches: 3
+      hora: 9,
+      min: 0,
     }
   ];
+
   packet2: Packet2[] = [
     {
       nombreDestino: "Valle Sagrado",
       precioDestino: 450,
-      duracionDias: 3,
-      duracionNoches: 2
+      hora: 9,
+      min: 0,
     }
   ];
+
   packet3: Packet3[] = [
     {
       nombreDestino: "Monataña de 7 colores",
       precioDestino: 330,
-      duracionDias: 2,
-      duracionNoches: 1
+      hora: 9,
+      min: 0,
     }
   ];
 
@@ -45,5 +53,11 @@ export class AppComponent {
     {
       nombreUsuario: "Franck",
     }
-  ]
+  ];
+  
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  mytime: Date = new Date();
 }
